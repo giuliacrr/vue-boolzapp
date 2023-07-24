@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(https://www.bootdey.com/img/bgy.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.main-container {
+  max-width: 1250px;
+  margin: 50px auto;
+  background-color: aquamarine;
+  max-height: 800px;
+}
+
+.contacts {
+  background-color: #eaeaea;
+  min-height: 800px;
+  flex-basis: 30%;
+}
+
+.user-messages {
+  background-image: url(https://camo.githubusercontent.com/854a93c27d64274c4f8f5a0b6ec36ee1d053cfcd934eac6c63bed9eaef9764bd/68747470733a2f2f7765622e77686174736170702e636f6d2f696d672f62672d636861742d74696c652d6461726b5f61346265353132653731393562366237333364393131306234303866303735642e706e67);
+  background-color: #e5ddd5;
+  background-attachment: fixed;
+  min-height: 800px;
+  flex-basis: 70%;
+}
+
+.profile-pic {
+  background-image: url(https://assets.pokemon.com/assets/cms2/img/pokedex/full/103_f2.png);
+  background-color: rgb(239, 243, 242);
+  background-size: cover;
+  height: 50px;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+}
+
+.fa-solid {
+  cursor: pointer;
+}
+
+.notif {
+  color: #8edafc;
+  background-color: #8edafc;
+}
+
+.silenced-notifies {
+  height: 55px;
+  aspect-ratio: 1/1;
+  background-color: white;
+}
+
+.text-secondary {
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.contatti {
+  cursor: pointer;
+  border-top: 1px solid rgb(196, 196, 196);
+}
+
+.contacts-pfp {
+  height: 50px;
+  aspect-ratio: 1/1;
+}
+
+.gray-bg-box-mex {
+  background-color: #eaeaea;
+  border-left: 1px solid rgb(196, 196, 196);
+}
+
+.sent {
+  max-width: 70%;
+  background-color: #009688;
+
+}
+
+.received {
+  max-width: 70%;
+  background-color: #364b58;
+}
+
+.data-in-mex-color {
+  color: rgb(196, 196, 196);
+  font-size: 0.7rem;
+}
+
+.user-input-text {
+  height: 80px;
+}
