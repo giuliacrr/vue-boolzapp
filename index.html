@@ -19,8 +19,7 @@
 
 <body>
   <div id="app">
-    <!--Sfondo verde in absolute--><!--LO FACCIO DOPO MI SCOCCIO ORA-->
-    <!-- La div principale è solamente un container margin auto-->
+
     <div class="main-container d-flex">
       <!--Al suo interno avremo due div uno di fianco all'altro e le loro dimensioni sono circa 30% e 70%-->
       <div class="contacts d-flex flex-column">
@@ -73,39 +72,43 @@
         <!--Contacts-->
         <div class=" p-2 rounded m-2 overflow-auto flex-grow-1">
           <!--contact-->
-          <div class="d-flex align-content-center justify-content-between contatti p-2">
+          <div class="d-flex align-content-center justify-content-between contatti p-2" v-for="(contact, i) in contacts"
+            @click="showCurrentChat(i)" :class="currentChat === i ? 'clicked-chat' : ''">
             <div class="d-flex align-items-center">
               <div class="rounded-circle">
-                <img class="contacts-pfp rounded-circle" src="/img/avatar_1.jpg" alt="contact">
+                <img class="contacts-pfp rounded-circle" :src="contact.avatar" alt="contact">
               </div>
               <div>
-                <h6 class="m-0 ms-1 fw-semibold">Nome Cognome</h6>
-                <span class="ms-1 text-secondary">Ultimo messaggio</span>
+                <h6 class="m-0 ms-1 fw-semibold">{{contact.name}}</h6>
+                <span class="ms-1 text-secondary">Ultimo messaggio inviato</span>
               </div>
             </div>
             <!--date-->
             <div class="d-flex align-items-start">
-              <span class="ms-1 text-secondary">data</span>
+              <span class="ms-1 text-secondary">{{contact.messages.date}}</span>
             </div>
           </div>
         </div>
       </div>
 
+
+
       <!--Box messaggio-->
-      <div class="user-messages d-flex flex-column">
+      <div class="user-messages flex-column " v-for="(userChat, i) in contacts" v-show="currentChat === i"
+        :class="currentChat===i ? 'd-flex': ''">
 
         <!--Profilo contatto-->
-        <div class="user-nav p-2 d-flex justify-content-between gray-bg-box-mex">
+        <div class=" user-nav p-2 d-flex justify-content-between gray-bg-box-mex">
           <!--User-->
           <div class="d-flex align-content-center">
             <div>
-              <div class="rounded-circle"> <img class="contacts-pfp rounded-circle" src="/img/avatar_1.jpg"
+              <div class="rounded-circle"> <img class="contacts-pfp rounded-circle" :src="userChat.avatar"
                   alt="contact">
               </div>
             </div>
             <div class="d-flex align-items-center">
               <div>
-                <h6 class="m-0 ms-1 fw-semibold">Nome Cognome</h6>
+                <h6 class="m-0 ms-1 fw-semibold">{{userChat.name}}</h6>
                 <span class="ms-1 text-secondary">Ultimo accesso</span>
               </div>
             </div>
@@ -122,27 +125,28 @@
         <div class="overflow-auto flex-grow-1 text-white">
           <!--nostri-->
           <div class="p-1">
-            <div class="p-2 m-2">
-              <div class=" d-flex justify-content-end align-items-center">
-                <div class="d-flex rounded sent p-2">
-                  <p class="m-0">skibbidy</p>
+            <div class="p-2 m-2" v-for="messaggio in contacts[currentChat].messages">
+              <div class=" d-flex  align-items-center"
+                :class="messaggio.status==='sent' ? 'justify-content-end' : 'justify-content-start'">
+                <div class="d-flex rounded p-2" :class="messaggio.status==='sent' ? 'sent' : 'received'">
+                  <p class="m-0">{{messaggio.message}}</p>
                   <div class="d-flex align-items-end">
-                    <span class="data-in-mex-color ms-2">04:19</span>
+                    <span class="data-in-mex-color ms-2">4:20</span>
                   </div>
                 </div>
               </div>
             </div>
             <!--loro-->
-            <div class=" p-2 m-2">
+            <!-- <div class=" p-2 m-2">
               <div class="d-flex justify-content-start align-items-center">
-                <div class=" d-flex rounded received p-2">
-                  <p class="m-0">Bibbidy</p>
+                <div class=" d-flex rounded     received     p-2">
+                  <p class="m-0"></p>
                   <div class="d-flex align-items-end ">
                     <span class="data-in-mex-color ms-2">04:20</span>
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
 

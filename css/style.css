@@ -72,6 +72,7 @@ body {
 .contacts-pfp {
   height: 50px;
   aspect-ratio: 1/1;
+  background-color: white;
 }
 
 .gray-bg-box-mex {
@@ -97,4 +98,8 @@ body {
 
 .user-input-text {
   height: 80px;
+}
+
+.clicked-chat {
+  background-color: rgb(207, 207, 207);
 }

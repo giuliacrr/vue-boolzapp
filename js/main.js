@@ -5,90 +5,94 @@ Vue.createApp({
   data() {
     return {
       contacts: [
-        {
-          name: "Michele",
-          avatar: "_1",
+        {//Pikachù
+          name: "Pikachù",
+          avatar: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/025.png",
           messages: [
             {
               date: "10/01/2020 15:30:55",
-              message: "Hai portato a spasso il cane?",
+              message: "Ciao Pikachù! Come va?",
               status: "sent",
             },
             {
               date: "10/01/2020 15:50:00",
-              message: "Ricordati di dargli da mangiare",
+              message: "Dopo 3 giorni mi sono ricordata di darti da mangiare. Speravo tanto non fossi morto!",
               status: "sent",
             },
             {
               date: "10/01/2020 16:15:22",
-              message: "Tutto fatto!",
+              message: "Pika.",
               status: "received",
             },
           ],
         },
-        {
-          name: "Fabio",
-          avatar: "_2",
+        {//Charmander
+          name: "Charmander",
+          avatar: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/004.png",
           messages: [
             {
               date: "20/03/2020 16:30:00",
-              message: "Ciao come stai?",
+              message: "Oddio Charmy! Sei il mio pokèmon preferito!! Bff!",
               status: "sent",
             },
             {
               date: "20/03/2020 16:30:55",
-              message: "Bene grazie! Stasera ci vediamo?",
+              message: "Char char!",
               status: "received",
             },
             {
               date: "20/03/2020 16:35:00",
-              message: "Mi piacerebbe ma devo andare a fare la spesa.",
+              message: "Char 💖",
               status: "received",
             },
           ],
         },
-        {
-          name: "Samuele",
-          avatar: "_3",
+        {//Bulbasaur
+          name: "Bulbasaur",
+          avatar: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png",
           messages: [
             {
               date: "28/03/2020 10:10:40",
-              message: "La Marianna va in campagna",
+              message: "SAUR SAUR??????",
               status: "received",
             },
             {
               date: "28/03/2020 10:20:10",
-              message: "Sicuro di non aver sbagliato chat?",
+              message: "Tranquillo, adoro anche te................",
               status: "sent",
             },
             {
               date: "28/03/2020 16:15:22",
-              message: "Ah scusa!",
+              message: "SA SAUR!!!! 😢",
               status: "received",
             },
           ],
         },
-        {
-          name: "Luisa",
-          avatar: "_4",
+        {//LUISA
+          name: "Psyduck",
+          avatar: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/054.png",
           messages: [
             {
               date: "10/01/2020 15:30:55",
-              message: "Lo sai che ha aperto una nuova pizzeria?",
+              message: "Hai preso gli antidepressivi, Psyduck?",
               status: "sent",
             },
             {
               date: "10/01/2020 15:50:00",
-              message: "Si, ma preferirei andare al cinema",
+              message: "Psy.............",
               status: "received",
             },
           ],
         },
-      ]
+      ],
+      currentChat: 2,
     };
   },
   methods: {
+    showCurrentChat(i) {
+      this.currentChat = i;
 
+    }
   },
   mounted() {
 
