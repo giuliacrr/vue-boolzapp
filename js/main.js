@@ -4,8 +4,13 @@ Vue.createApp({
 
   data() {
     return {
+      newMessages: [{
+        message: "",
+        status: "",
+      }],
       contacts: [
         {//Pikachù
+          answer: "Pika Pika!!",
           name: "Pikachù",
           avatar: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/025.png",
           messages: [
@@ -27,6 +32,7 @@ Vue.createApp({
           ],
         },
         {//Charmander
+          answer: "Char char!!",
           name: "Charmander",
           avatar: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/004.png",
           messages: [
@@ -48,6 +54,7 @@ Vue.createApp({
           ],
         },
         {//Bulbasaur
+          answer: "Saur saur",
           name: "Bulbasaur",
           avatar: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png",
           messages: [
@@ -69,6 +76,7 @@ Vue.createApp({
           ],
         },
         {//LUISA
+          answer: "Psy...!!",
           name: "Psyduck",
           avatar: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/054.png",
           messages: [
@@ -91,8 +99,22 @@ Vue.createApp({
   methods: {
     showCurrentChat(i) {
       this.currentChat = i;
-
-    }
+    },
+    //Send message function, row 161 HTML
+    sendMessage(i) {
+      const newMessage = { ...this.newMessages };
+      newMessage.status = "sent";
+      this.contacts[i].messages.push(newMessage);
+      this.newMessages.message = "";
+      setTimeout(this.receiveMessage, 1500);
+    },
+    //Receive message used in the send message function above
+    receiveMessage() {
+      const newMessage = { ...this.newMessages };
+      newMessage.status = "received";
+      newMessage.message = this.contacts[this.currentChat].answer;
+      this.contacts[this.currentChat].messages.push(newMessage);
+    },
   },
   mounted() {
 

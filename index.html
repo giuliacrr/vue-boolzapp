@@ -24,7 +24,6 @@
       <!--Al suo interno avremo due div uno di fianco all'altro e le loro dimensioni sono circa 30% e 70%-->
       <div class="contacts d-flex flex-column">
         <!-- a sinistra avremo 4 div totali, l'ultima di cui ha overflow auto-->
-
         <!--La prima nav riporta il profilo dell'user-->
         <div class="user-nav p-2 d-flex justify-content-between">
           <!--User-->
@@ -158,8 +157,8 @@
           </div>
           <!--Text Input-->
           <div class="d-flex justify-content-center flex-grow-1">
-            <input type="search" class="form-control" placeholder="Scrivi un messaggio"
-              aria-describedby="search-addon" />
+            <input type="search" class="form-control" placeholder="Scrivi un messaggio" aria-describedby="search-addon"
+              v-model="newMessages.message" @keyup.enter="sendMessage(i)" />
           </div>
           <!--Vocal note-->
           <div class="d-flex justify-content-center ps-4 pe-4 ">
@@ -167,14 +166,6 @@
           </div>
         </div>
       </div>
-
-      <!-- per fare la scrollbar fare in modo che entrambi i contenitori citati sopra ^^^ siano in flex column-->
-      <!-- a sinistra avremo 4 div totali, l'ultima di cui ha overflow auto-->
-      <!-- nella destra abbiamo nav su, nav giù e il box centrale con overflow auto.-->
-      <!-- stessa logica nelle navbar, abrò multiple div (avatar, testo, pulsanti)-->
-      <!-- nel box messaggio, ci saranno diversi div dove avremo i received e sent messages, i quali avranno due classi diverse-->
-
-      <!-- per gli utenti nel div a sinistra, seguire la stessa logica della navbar superiore del box destra :)-->
     </div>
   </div>
   <!--..........BOOTSTRAP JS..........-->
