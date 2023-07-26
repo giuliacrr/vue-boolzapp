@@ -105,3 +105,23 @@ body {
 .clicked-chat {
   background-color: rgb(207, 207, 207);
 }
+
+/*Drop-down delete msg*/
+.mex {
+  position: relative;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 0;
+}
+
+.fa-chevron-down {
+  color: white;
+  background-color: transparent;
+}
+
+.mex:hover .dropdown {
+  display: inline-block;
+}

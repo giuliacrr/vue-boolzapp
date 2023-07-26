@@ -14,7 +14,7 @@
   <!--Stylesheet-->
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-  <title>Title</title>
+  <title>Boolzapp</title>
 </head>
 
 <body>
@@ -77,7 +77,7 @@
             <div class="d-flex align-content-center justify-content-between contatti p-2" @click="showCurrentChat(i)"
               :class="currentChat === i ? 'clicked-chat' : ''"
               v-if="(contact.name).toLowerCase().includes(ricerca.toLowerCase())">
-              <!-- questa è la condizione per il filtro ricerca-->
+              <!-- questa su ^^^^ è la condizione per il filtro ricerca-->
               <div class="d-flex align-items-center">
                 <div class="rounded-circle">
                   <img class="contacts-pfp rounded-circle" :src="contact.avatar" alt="contact">
@@ -129,14 +129,23 @@
         <!--messaggi-->
         <div class="overflow-auto flex-grow-1 text-white">
           <!--nostri-->
-          <div class="p-1">
-            <div class="p-2 m-2" v-for="messaggio in contacts[currentChat].messages">
+          <div class="p-1"> <!-- Aggiungo la i-->
+            <div class="p-2 m-2" v-for="(messaggio, i) in contacts[currentChat].messages">
               <div class=" d-flex  align-items-center"
                 :class="messaggio.status==='sent' ? 'justify-content-end' : 'justify-content-start'">
-                <div class="d-flex rounded p-2" :class="messaggio.status==='sent' ? 'sent' : 'received'">
+                <div class="d-flex rounded p-2 mex" :class="messaggio.status==='sent' ? 'sent' : 'received'">
                   <p class="m-0 text-break">{{messaggio.message}}</p>
                   <div class="d-flex align-items-end">
-                    <span class="data-in-mex-color ms-2">{{messaggio.date}}</span>
+                    <span class="data-in-mex-color ms-2">04:20</span>
+                    <!--Bottone per cancellare messaggio-->
+                    <div class="dropdown">
+                      <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-chevron-down"></i>
+                      </button>
+                      <ul class="dropdown-menu"> <!--Che mi servirà qui per cancellare (js riga 120)-->
+                        <li><a class="dropdown-item" href="#" @click="deleteMessage(i)">Cancella messaggio</a></li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>

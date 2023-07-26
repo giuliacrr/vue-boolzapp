@@ -93,6 +93,7 @@ Vue.createApp({
           ],
         },
       ],
+      //Indice della chat che sto visualizzando
       currentChat: 0,
       //Qui dichiaro il v-model del filtro ricerca vuoto che mi servirà poi in HTML in riga 79
       ricerca: "",
@@ -117,6 +118,9 @@ Vue.createApp({
       newMessage.message = this.contacts[this.currentChat].answer;
       this.contacts[this.currentChat].messages.push(newMessage);
     },
+    deleteMessage(i) { //prendo in contacts l'indice della chat che sto visualizzando
+      this.contacts[this.currentChat].messages.splice(i, 1); //e nei messaggi rimuovo quel determinato messaggio all'indice i
+    }
   },
   mounted() {
 
