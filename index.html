@@ -33,7 +33,7 @@
             </div>
             <div class="d-flex align-items-center">
               <div>
-                <h6 class="m-0 m-lg-1 fw-semibold">Esaurita</h6>
+                <h6 class="m-0 m-lg-1 fw-semibold">Eggxecutor</h6>
               </div>
             </div>
           </div>
@@ -64,32 +64,38 @@
               <i class="fas fa-search"></i>
             </span>
             <input type="search" class="form-control" placeholder="Trova o inizia una conversazione"
-              aria-describedby="search-addon" />
+              aria-describedby="search-addon" v-model="ricerca" />
+            <!-- v-model="ricerca" è quello che poi useremo per collegare, sotto, il filtro ricerca e lo dichiaro 
+            vuoto nel js in return riga 98-->
           </div>
         </div>
 
         <!--Contacts-->
         <div class=" p-2 rounded m-2 overflow-auto flex-grow-1">
           <!--contact-->
-          <div class="d-flex align-content-center justify-content-between contatti p-2" v-for="(contact, i) in contacts"
-            @click="showCurrentChat(i)" :class="currentChat === i ? 'clicked-chat' : ''">
-            <div class="d-flex align-items-center">
-              <div class="rounded-circle">
-                <img class="contacts-pfp rounded-circle" :src="contact.avatar" alt="contact">
+          <div v-for="(contact, i) in contacts">
+            <div class="d-flex align-content-center justify-content-between contatti p-2" @click="showCurrentChat(i)"
+              :class="currentChat === i ? 'clicked-chat' : ''"
+              v-if="(contact.name).toLowerCase().includes(ricerca.toLowerCase())">
+              <!-- questa è la condizione per il filtro ricerca-->
+              <div class="d-flex align-items-center">
+                <div class="rounded-circle">
+                  <img class="contacts-pfp rounded-circle" :src="contact.avatar" alt="contact">
+                </div>
+                <div>
+                  <h6 class="m-0 ms-1 fw-semibold">{{contact.name}}</h6>
+                  <span class="ms-1 text-secondary">Ultimo messaggio inviato</span>
+                </div>
               </div>
-              <div>
-                <h6 class="m-0 ms-1 fw-semibold">{{contact.name}}</h6>
-                <span class="ms-1 text-secondary">Ultimo messaggio inviato</span>
+              <!--date-->
+              <div class="d-flex align-items-start">
+                <span class="ms-1 text-secondary data-mex">{{contact.messages.date}}</span>
               </div>
-            </div>
-            <!--date-->
-            <div class="d-flex align-items-start">
-              <span class="ms-1 text-secondary">{{contact.messages.date}}</span>
             </div>
           </div>
         </div>
       </div>
-
+      <!--v-if="contact.name.includes(ricerca)"-->
 
 
       <!--Box messaggio-->
@@ -128,9 +134,9 @@
               <div class=" d-flex  align-items-center"
                 :class="messaggio.status==='sent' ? 'justify-content-end' : 'justify-content-start'">
                 <div class="d-flex rounded p-2" :class="messaggio.status==='sent' ? 'sent' : 'received'">
-                  <p class="m-0">{{messaggio.message}}</p>
+                  <p class="m-0 text-break">{{messaggio.message}}</p>
                   <div class="d-flex align-items-end">
-                    <span class="data-in-mex-color ms-2">4:20</span>
+                    <span class="data-in-mex-color ms-2">{{messaggio.date}}</span>
                   </div>
                 </div>
               </div>

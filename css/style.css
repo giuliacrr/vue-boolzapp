@@ -13,6 +13,9 @@ body {
   height: 100vh;
 }
 
+.data-mex {
+  font-size: 0.7rem !important;
+}
 
 .main-container {
   max-width: 1250px;
@@ -83,7 +86,6 @@ body {
 .sent {
   max-width: 70%;
   background-color: #009688;
-
 }
 
 .received {
